@@ -4,9 +4,15 @@ Hermes Agent 技能：通过 Appium MCP 和 ADB 连接安卓手机，按授权�
 
 ## 安装
 
+先审阅仓库内容，然后手动安装到当前 Hermes profile：
+
 ```sh
-hermes skills install https://raw.githubusercontent.com/daniel-to-the-moon/android-network-initialization/main/SKILL.md
+git clone https://github.com/daniel-to-the-moon/android-network-initialization.git
+mkdir -p "${HERMES_HOME:-$HOME/.hermes}/skills/initialize-android-network"
+cp -n android-network-initialization/SKILL.md "${HERMES_HOME:-$HOME/.hermes}/skills/initialize-android-network/SKILL.md"
 ```
+
+`cp -n` 不覆盖已有技能文件。也可尝试 `hermes skills install`；在本次测试环境中该命令下载失败，而 Git 克隆方式通过。
 
 安装前请审阅 [SKILL.md](SKILL.md) 与相关权限。安装后可在 Hermes 中提出“初始化安卓手机网络”。
 
